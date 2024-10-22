@@ -19,6 +19,19 @@
 				"type": "function"
 			},
 			{
+				"inputs": [],
+				"name": "saveData",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "uint256",
@@ -60,11 +73,11 @@
 	},
 	"sources": {
 		"firstcontract.sol": {
-			"keccak256": "0x65937f2a6aeee3d7c33b81ad6a01f9fa8aa2e3ba49503c325c70aea0e0fe3a36",
+			"keccak256": "0xd7913a1a81c322bd13b3206285f6cfd4a144772d1748ffd88f8e257f6c916c68",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://d7b2e2efc84fb6f1b99e27b3ad81d4dbea32d3a717bb2a8e34de01ca8fe6afa5",
-				"dweb:/ipfs/QmZ4nrrP72yyNh35wK75qg4BoPEcHGoaRS9kPCBhDfuwd4"
+				"bzz-raw://0bc2375e0cc86a4bc6d14d6b2a674356fbc42ae2b84897571cd2ce3afced755c",
+				"dweb:/ipfs/QmbSuidrC6zEcRafe4d9McDBiAGLeh5Gu2SFz9fHqCRE58"
 			]
 		}
 	},
