@@ -132,11 +132,11 @@
 	},
 	"sources": {
 		"secondcontract.sol": {
-			"keccak256": "0x80cbcebf7b77eac2362b293ff0eedae0edf5c7d4d2eabef6b48b15fad63fb193",
+			"keccak256": "0xf2a4ece3d008bc37508a936e9aaea5cb6d98ee6358016c672f4b274575b36c78",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://5ac28df1f6e3620199e204ad041272f776ce49be447a941e5d56e47a47f4fe35",
-				"dweb:/ipfs/QmWXdYcvatzZQsRJFiVro21hc4FALmm682rXXbvKABBAd3"
+				"bzz-raw://966e8176f23b4a32810a3287410efb499541851301a2eef38bffc177447eba27",
+				"dweb:/ipfs/QmUBGxi2DxRbuW4UmTSFnbBGLpyCfcBXWgaFzxp61BdFfT"
 			]
 		}
 	},
