@@ -6,12 +6,17 @@ contract firstcoin {
     mapping (address => uint ) public balances;
 
     event sent(address from, address to, uint amount);
+
+// Adding role for Minter can sending any coin
+    modifier onlyMinter{
+            require(msg.sender==minter);
+        _;
+    }
     constructor () {
         minter= msg.sender;
 
     }
-    function mint(address receiver, uint amount) public{
-        require(msg.sender==minter);
+    function mint(address receiver, uint amount) public onlyMinter{
         require(amount<1e60);
         balances[receiver]+=amount;
     }
