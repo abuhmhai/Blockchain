@@ -12,16 +12,22 @@ contract firstcoin {
             require(msg.sender==minter);
         _;
     }
+    modifier checkamount(uint amount){
+        require(amount<1e60);
+        _;
+    }
+    modifier checkbalance(uint amount){
+        require(amount<=balances[msg.sender],"Khong du tien ma doi chuyen");
+        _; // khi duoc goi ra moi chay
+    }
     constructor () {
         minter= msg.sender;
-
-    }
-    function mint(address receiver, uint amount) public onlyMinter{
-        require(amount<1e60);
+    }//chay 1 lan duy nhat
+    function mint(address receiver, uint amount) public onlyMinter checkamount(amount){
+//        require(amount<1e60);
         balances[receiver]+=amount;
     }
-    function send(address receiver, uint amount) public{
-        require(amount<=balances[msg.sender],"Khong du tien ma doi chuyen");
+    function send(address receiver, uint amount) public checkbalance(amount){
         balances[msg.sender]-=amount;
         balances[receiver]+=amount;
         emit sent(msg.sender,receiver, amount);
