@@ -1,0 +1,148 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "firstName",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "lastName",
+						"type": "string"
+					}
+				],
+				"name": "addPlayer",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "playerAddress",
+						"type": "address"
+					}
+				],
+				"name": "changePlayerLevel",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "playerAddress",
+						"type": "address"
+					}
+				],
+				"name": "getPlayerLevel",
+				"outputs": [
+					{
+						"internalType": "enum coin.Level",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "playerCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "players",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "playerAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "enum coin.Level",
+						"name": "playerLevel",
+						"type": "uint8"
+					},
+					{
+						"internalType": "string",
+						"name": "firstName",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "lastName",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "createTime",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"fourtime.sol": "coin"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"fourtime.sol": {
+			"keccak256": "0xf13432eaa5dca18388bba7a84b55c2c12a22451c48251e214d477dbf6afd6cee",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://130fd4bef0b04f8f1807aa2591d0861edddc42a3ce2cffe413b203f8e357dff0",
+				"dweb:/ipfs/QmPVgvcEo6hHRLaU1jXSyFqw4VV3S5TZkGFvXqqQu4RFSN"
+			]
+		}
+	},
+	"version": 1
+}
