@@ -1,48 +1,75 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.8.2 <0.9.0;
-//Thời gian phiên đấu giá còn hoạt động
-// Giá trị đặt lớn hơn giá trị tại thời điểm đó 
-// Bid!=0
-//Withdraw: amount> 0 
-// Sau khi rút phải rút amount = bid 
-// after send = 0 
-// Auction end: khi nào kết thúc phiên đấu giá 
-// Sự kiện tranfer  
-contract simpleAuction{
-    //Variable 
+
+// Simple Auction Contract
+contract SimpleAuction {
+    // Variables
+    address payable public beneficiary;
     uint public auctionEndTime;
     uint public highestBid;
     address public highestBidder;
-    event highestBidincrease( address bidder, uint amount);
-    mapping( address=>uint) public pendingReturns;
-    //Fuction
+    bool ended = false;
+
+    // Mappings
+    mapping(address => uint) public pendingReturns;
+
+    // Events
+    event HighestBidIncrease(address bidder, uint amount);
+    event AuctionEnded(address winner, uint amount);
+
+    // Constructor
+    constructor(uint _biddingTime, address payable _beneficiary) {
+        beneficiary = _beneficiary;
+        auctionEndTime = block.timestamp + _biddingTime;
+    }
+
+    // Bid function
     function bid() public payable {
-        if (block.timestamp> auctionEndTime ){
-            revert("Phien dau gia da ket thuc");
+        if (block.timestamp > auctionEndTime) {
+            revert("Auction has already ended.");
         }
-        if(msg.value<=highBid){
-            revert("Gia cua ban thap hon gia cao nhat ");
+        if (msg.value <= highestBid) {
+            revert("There already is a higher bid.");
         }
-        if(highBid!=0){
-            pendingReturns[highestBidder]+= highestBid;
+        
+        // Refund the previously highest bidder
+        if (highestBid != 0) {
+            pendingReturns[highestBidder] += highestBid;
         }
-        highestBidder=msg.sender;
-        highestBid= msg.value;
-        emit highestBidincrease(msg.sender,msg.value);
+
+        highestBidder = msg.sender;
+        highestBid = msg.value;
+        emit HighestBidIncrease(msg.sender, msg.value);
     }
-    function withdraw() public returns(bool){
-        uint=pendingReturns[msg.sender];
-        if(amount>0){
-            pendingReturns[msg.sender]=0;
-            if(!payable msg.sender.send(amount)){
-            pendingReturns[msg.sender]=amount;
-            return false;
+
+    // Withdraw function for bidders who were outbid
+    function withdraw() public returns (bool) {
+        uint amount = pendingReturns[msg.sender];
+        if (amount > 0) {
+            pendingReturns[msg.sender] = 0;
+
+            if (!payable(msg.sender).send(amount)) {
+                // If send fails, reset the amount owed
+                pendingReturns[msg.sender] = amount;
+                return false;
+            }
         }
-        return true; 
-        }
+        return true;
     }
+
+    // End the auction and send highest bid to the beneficiary
     function auctionEnd() public {
+        if (ended) {
+            revert("Auction has already ended.");
+        }
+        if (block.timestamp < auctionEndTime) {
+            revert("Auction not yet ended.");
+        }
 
+        ended = true;
+        emit AuctionEnded(highestBidder, highestBid);
+
+        // Transfer the highest bid to the beneficiary
+        beneficiary.transfer(highestBid);
     }
-
 }
