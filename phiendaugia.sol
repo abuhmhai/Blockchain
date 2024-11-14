@@ -36,7 +36,6 @@ contract SimpleAuction {
         if (highestBid != 0) {
             pendingReturns[highestBidder] += highestBid;
         }
-
         highestBidder = msg.sender;
         highestBid = msg.value;
         emit HighestBidIncrease(msg.sender, msg.value);

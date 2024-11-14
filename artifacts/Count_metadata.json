@@ -6,42 +6,42 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [],
-				"name": "get",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "saveData",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
+				"anonymous": false,
 				"inputs": [
 					{
+						"indexed": false,
 						"internalType": "uint256",
-						"name": "x",
+						"name": "_value",
 						"type": "uint256"
 					}
 				],
-				"name": "set",
-				"outputs": [],
+				"name": "Changed",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "plus",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "value",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			}
 		],
@@ -58,7 +58,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"firstcontract.sol": "FirstContract"
+			"plus.sol": "Count"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -72,12 +72,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"firstcontract.sol": {
-			"keccak256": "0xad88afc0cb042a2e9c20808773888f86a96f2ee82dce69c138e88f254f17b1bf",
+		"plus.sol": {
+			"keccak256": "0x509c4de23e19c59a366ec3d0bf21cf3d4a568a696ca71c5237b19024d9c767e3",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://1d54aa95f01afa85d40f6cf52fef5f217b13ebc6149166f24151c55705253860",
-				"dweb:/ipfs/QmeM9Gq4PhskX3YDukF5BoTy7oPBesF6M1aFZpaA6pyzkz"
+				"bzz-raw://83f524c3b20066a7723d0af7331f7591767ef80545df5333e58a21aeb54b97c9",
+				"dweb:/ipfs/QmWdbTHPwgZUPYDEru8tBjk9MDLjNVDSBFj8fErhEwpH5M"
 			]
 		}
 	},

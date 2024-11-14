@@ -18,10 +18,9 @@ contract Game{
         uint age;
         string sex;
     }
-
     function addPlayer(string memory fullName,uint age, string memory sex) public{
         players[msg.sender] = Player(msg.sender,fullName, age, sex );
 //        players.push(Player(fullName,age,sex));
         countPlayer+=1;
-    }
+    } 
 }

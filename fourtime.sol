@@ -21,13 +21,11 @@ contract coin {
     function addPlayer(string memory firstName, string memory lastName) public {
         // Thêm một đối tượng Player mới vào mapping "players" với khóa là địa chỉ của người gửi
         players[msg.sender] = Player(msg.sender, Level.Beginner, firstName, lastName, block.timestamp);
-        // Tăng biến đếm số lượng người chơi lên 1
         playerCount += 1;
     }
 
     // Hàm trả về cấp độ của người chơi dựa trên địa chỉ ví
     function getPlayerLevel(address playerAddress) public view returns (Level) {
-        // Trả về cấp độ của người chơi được chỉ định
         return players[playerAddress].playerLevel;
     }
 
